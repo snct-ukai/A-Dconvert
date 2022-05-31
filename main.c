@@ -28,7 +28,8 @@ int main (void)
 		uint8_t output = 0b00000000;
 		uint8_t num = 0b00001000;
 		while(num){
-			PORTB = (output | num);
+			output |= num;
+			PORTB = output;
 			_delay_us(0.5);
 			output ^= (ACSR & 0b00100000) ? 0 : num;
 			num = num >> 1;
