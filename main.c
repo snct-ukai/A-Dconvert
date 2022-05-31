@@ -31,7 +31,7 @@ int main (void)
 			output |= num;
 			PORTB = output;
 			_delay_us(0.5);
-			output ^= (ACSR & 0b00100000) ? 0 : num;
+			output ^= (ACSR & 0b00100000) ? num : 0;
 			num = num >> 1;
 		}
 	}
